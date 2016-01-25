@@ -1,8 +1,8 @@
 class CreateTaggings < ActiveRecord::Migration
   def change
     create_table :taggings do |t|
-      t.reference :tag
-      t.reference :game
+      t.references :tag
+      t.references :game
 
       t.timestamps null: false
     end
