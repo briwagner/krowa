@@ -1,0 +1,19 @@
+<div class = "container pad-15">
+  <br>
+  <%= form_tag("/games/add", method: "get") do %>
+  <%= text_field_tag :name, nil, placeholder: "Search the Internet" %>
+  <%= submit_tag("Search") %>
+  <% end %>
+  <br>
+    <% if @game_data != nil %>
+    <% @game_data.each do |game| %>
+      <li>
+        <a href="http://www.boardgamegeek.com/xmlapi/boardgame/<%= game[:id] %>"><%= game[:name] %></a>
+      </li>
+    <% end %>
+    <% else %>
+      <p>No results</p>
+  <% end %>
+
+
+</div>
