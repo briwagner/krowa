@@ -17,9 +17,6 @@ Rails.application.routes.draw do
 
   end
 
-<<<<<<< HEAD
   resources :friend_requests, only: [:create, :destroy, :update]
-=======
->>>>>>> master
 
 end
