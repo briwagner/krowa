@@ -1,0 +1,7 @@
+<ul>
+  <% if !@games.empty? %>
+    <% @games.each do |game| %>
+      <li><%= game.name %></li>
+    <% end %>
+  <% end %>
+</ul>
