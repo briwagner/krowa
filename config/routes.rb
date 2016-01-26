@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :games
+  resources :tags do
+    resources :games, shallow: true
+  end
 end
