@@ -18,6 +18,8 @@ gem "paperclip", "~> 4.3"
 gem 'pry'
 gem 'bcrypt'
 gem 'bootstrap_form'
+gem 'searchkick'
+gem 'http'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

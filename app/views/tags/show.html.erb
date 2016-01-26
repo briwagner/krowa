@@ -1,0 +1,15 @@
+<h3 class="text-center pad-15"><%= @tag.title %></h3>
+<div class="collection">
+  <% if @games.count > 0 %>
+    <ul class="no-list text-center">
+      <% @games.each do |game|  %>
+        <li class="pad-15"><a href="/games/<%= game.id %>"><%= game.name %> <img src="<%= game.thumbnail_url %>" class="tiny-pic" /></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+
+    <p class="text-center pad-10"><em>No games belong to this category. Suggest the admins add some!</em></p>
+
+  <% end %>
+
+</div>

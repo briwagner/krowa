@@ -1,5 +1,5 @@
-<h1>Top Games</h1>
-<ul>
+<ul class="no-list">
+  <br>
   <% if !@games.empty? %>
     <% @games.each do |game| %>
       <li>
@@ -8,5 +8,7 @@
         <p><%= game.short_description %></p>
       </li>
     <% end %>
+    <% else %>
+      <p>No results</p>
   <% end %>
 </ul>

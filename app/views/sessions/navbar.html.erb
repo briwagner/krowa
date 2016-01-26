@@ -1,0 +1,21 @@
+  <div class="col-md-12 main-nav">
+    <div class="col-md-8">
+    <h3 class="inline-text">Welcome to Game Cow!</h3>
+      <ul class="no-list inline-list">
+        <% unless session[:user_id] %>
+          <li><a href="/users/new">Register</a></li>
+          <li><a href="/login">Login</a></li>
+        <% else %>
+          <li><a href="/users/<%= current_user.id %>"><%= current_user.firstname %></a></li>
+          <li><a href="/logout">Logout</a></li>
+        <% end %>
+        <li><a href="/games">Games</a></li>
+      </ul>
+    </div>
+    <div class="col-md-4 search-bar">
+      <%= form_tag(games_path, method: "get") do %>
+        <%= text_field_tag :name, nil, placeholder: "Search" %>
+        <%= submit_tag "Search", class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>

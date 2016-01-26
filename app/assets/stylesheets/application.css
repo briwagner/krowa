@@ -20,6 +20,7 @@
   border-bottom: 3px solid rgb(93,47,140);
   color: white;
   padding-top: 25px;
+  border-radius: 0 0 5px 5px;
 }
 
 .no-list {
@@ -44,3 +45,64 @@
   color: white;
 }
 
+.pad-15 {
+  padding: 15px 0;
+}
+
+.pad-10 {
+  padding: 10px 0;
+}
+
+.pad-5 {
+  padding: 5px 0;
+}
+
+.collection {
+  border: 2px solid #efefef;
+  border-radius: 15px;
+}
+
+.tiny-pic {
+  height: 50px;
+  width: auto;
+  margin-left: 10px;
+}
+
+.friends-circle {
+  border-radius: 15px;
+  width: 98%;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
+
+.left-20 {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.friend-games {
+  margin: 0 20px;
+  border-top: 1px solid #E5BF8C;
+}
+
+.friend-games p strong, .text-bkg-antique {
+  background-color: #E5BF8C;
+  padding: 3px 8px;
+  border-radius: 5px;
+  display: inline;
+}
+
+.search-bar {
+  color:black;
+}
+
+.game-detail {
+  padding-top: 10px;
+}
+
+.game-pic {
+  float: right;
+  width: 420px;
+  height: auto;
+  margin: 10px 0 10px 25px;
+}

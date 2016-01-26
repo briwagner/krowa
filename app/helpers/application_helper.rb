@@ -24,4 +24,9 @@ module ApplicationHelper
     FriendRequest.find_by(sender_id: session[:user_id], recipient_id: id) || FriendRequest.find_by(sender_id: id, recipient_id: session[:user_id])
   end
 
+  def parse_xml(url)
+    doc = Nokogiri::HTML(open(url))
+    p doc
+  end
+
 end
