@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :collections, shallow: true
   end
 
+  resources :friend_requests, only: [:create, :destroy, :update]
+
 end
