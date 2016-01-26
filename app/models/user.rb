@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
     self.admin
   end
 
+  def fullname
+    self.firstname + " " + self.lastname
+  end
+
 end
