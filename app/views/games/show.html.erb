@@ -1,4 +1,3 @@
-
 <div class = "temporary-margin">
   <img src=<%= @game.image_url %> height="500" width="500">
   <br>
@@ -15,3 +14,18 @@
   <br>
   <%= "Description: #{@game.description}" %>
 </div>
+
+
+<%= link_to 'Leave a review', new_game_review_path(@game), :remote => true, :id => "new_review_link" %>
+
+<table>
+  <tr>
+    <th>Rating</th><span></span>
+    <th>Description</th>
+  </tr>
+  <tbody id="reviews">
+  <% @game.reviews.each do |review| %>
+  <%= render "reviews/review", :review => review %>
+  <% end %>
+</tbody>
+</table>
