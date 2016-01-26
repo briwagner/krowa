@@ -12,4 +12,35 @@
  *
  *= require_tree .
  *= require_self
+
  */
+.main-nav {
+  height: 80px;
+  background-color: #663399;
+  border-bottom: 3px solid rgb(93,47,140);
+  color: white;
+  padding-top: 25px;
+}
+
+.no-list {
+  list-style-type: none;
+  padding-left: 5px;
+}
+
+.inline-text {
+  display: inline;
+}
+
+.inline-list {
+  display:inline-block;
+}
+
+.inline-list li {
+  display: inline-block;
+  margin-left: 45px;
+}
+
+.inline-list li a {
+  color: white;
+}
+
