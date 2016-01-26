@@ -13,8 +13,13 @@
     <div class="col-md-8">
     <h3 class="inline-text">Welcome to Game Cow!</h3>
       <ul class="no-list inline-list">
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Games</a></li>
+        <% unless session[:user_id] %>
+          <li><a href="/users/new">Register</a></li>
+          <li><a href="/login">Login</a></li>
+        <% else %>
+          <li><a href="/logout">Logout</a></li>
+        <% end %>
+        <li><a href="/games">Games</a></li>
       </ul>
     </div>
     <div class="col-md-4">
