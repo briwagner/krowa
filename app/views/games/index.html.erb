@@ -1,7 +1,12 @@
+<h1>Top Games</h1>
 <ul>
   <% if !@games.empty? %>
     <% @games.each do |game| %>
-      <li><%= game.name %></li>
+      <li>
+        <img src=<%= game.thumbnail_url %> style="width:35px;height:35px;">
+        <a href="games/<%= game.id %>"><%= game.name %></a>
+        <p><%= game.short_description %></p>
+      </li>
     <% end %>
   <% end %>
 </ul>

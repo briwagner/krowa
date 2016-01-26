@@ -5,8 +5,13 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  resources :games
   resources :tags do
     resources :games, shallow: true
   end
+
+  resources :games do
+    resources :collections, shallow: true
+  end
+
+
 end

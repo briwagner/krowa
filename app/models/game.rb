@@ -4,4 +4,9 @@ class Game < ActiveRecord::Base
   has_many :reviews
   has_many :taggings
   has_many :tags, through: :taggings
+
+
+  def short_description
+    short_string = self.description.slice(0..200) + ". . . "
+  end
 end
