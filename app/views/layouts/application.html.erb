@@ -9,6 +9,22 @@
 <body>
 <div class="container container-fluid">
 
+  <div class="col-md-12 main-nav">
+    <div class="col-md-8">
+    <h3 class="inline-text">Welcome to Game Cow!</h3>
+      <ul class="no-list inline-list">
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Games</a></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <form>
+        <input type="text" name="search" placeholder="Search">
+        <input type="submit" value="Search">
+      </form>
+    </div>
+  </div>
+
   <div class="sidebar col-md-3">
     <!-- friends section -->
     <%= render template: "users/_friends"%>
