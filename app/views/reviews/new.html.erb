@@ -1,0 +1,25 @@
+<h2>Write your review bloody bustard</h2>
+
+<%= form_for([@game, @game.reviews.build]) do |f| %>
+
+
+	<%= f.label(:rating, "1") %>
+	<%= f.radio_button(:rating, 1) %>
+	<%= f.label(:rating, "2") %> 
+	<%= f.radio_button(:rating, 2) %>
+	<%= f.label(:rating, "3") %>
+	<%= f.radio_button(:rating, 3) %>
+	<%= f.label(:rating, "4") %>
+	<%= f.radio_button(:rating, 4) %>
+	<%= f.label(:rating, "5") %>
+	<%= f.radio_button(:rating, 5) %><br />
+	  <%= f.text_area :description %><br />
+
+  <%= f.submit %>
+
+ 
+
+
+<% end %>
+
+<h1><%= current_user.id %></h1>
