@@ -1,11 +1,11 @@
 class TagsController < ApplicationController
 
   def index
-    
   end
 
   def show
-    @tag = Tag.find(session[:user_id])
+    @tag = Tag.find(params[:id])
+    @games = @tag.games
   end
 
   def new
