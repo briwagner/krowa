@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+
  */
 .main-nav {
   height: 80px;
@@ -42,3 +43,4 @@
 .inline-list li a {
   color: white;
 }
+
