@@ -63,6 +63,7 @@
 
 .tiny-pic {
   height: 50px;
+  width: auto;
   margin-left: 10px;
 }
 
@@ -83,6 +84,12 @@
   border-top: 1px solid #E5BF8C;
 }
 
+.friend-games p strong {
+  background-color: #E5BF8C;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
 .search-bar {
   color:black;
 }
@@ -93,7 +100,7 @@
 
 .game-pic {
   float: right;
-  height: 420px;
-  width: auto;
+  width: 420px;
+  height: auto;
   margin: 10px 0 10px 25px;
 }
