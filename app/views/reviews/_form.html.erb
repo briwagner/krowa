@@ -1,0 +1,32 @@
+
+<%= form_for([@game, @game.reviews.build], remote: true, id: 'new_review') do |f| %>
+	<h2>Leave a review</h2>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+	<%= f.label(:rating, "1") %>
+	<%= f.radio_button(:rating, 1) %>
+	<%= f.label(:rating, "2") %> 
+	<%= f.radio_button(:rating, 2) %>
+	<%= f.label(:rating, "3") %>
+	<%= f.radio_button(:rating, 3) %>
+	<%= f.label(:rating, "4") %>
+	<%= f.radio_button(:rating, 4) %>
+	<%= f.label(:rating, "5") %>
+	<%= f.radio_button(:rating, 5) %><br />
+	  <%= f.text_area :description %><br />
+
+  <%= f.submit %>
+
+<% end %>

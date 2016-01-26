@@ -1,0 +1,12 @@
+<% if @game.errors.count == 0 %>
+
+	$('#new_review').remove();
+	$('#new_review_link').show();
+	$('#reviews').append('<%= j render("review", :review => @review) %>');
+
+<% else %>
+
+	$('.new_review').remove();
+	$('#new_review_link').after('<%= j render("form") %>');
+
+<% end %>

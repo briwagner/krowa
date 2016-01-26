@@ -86,3 +86,14 @@
 .search-bar {
   color:black;
 }
+
+.game-detail {
+  padding-top: 10px;
+}
+
+.game-pic {
+  float: right;
+  height: 420px;
+  width: auto;
+  margin: 10px 0 10px 25px;
+}

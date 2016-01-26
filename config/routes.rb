@@ -8,8 +8,12 @@ Rails.application.routes.draw do
 
   resources :tags, only: [:show, :new, :create, :destroy]
 
+
   resources :games do
+  	resources :reviews
     resources :collections, shallow: true
+
   end
+
 
 end
