@@ -1,19 +1,22 @@
 <h3 class="text-center pad-15">Hey, <%= @user.firstname.upcase %></h3>
 
 
-<div class="text-center collection">
-  <h4 class="pad-15">Your Game Collection</h4>
+<div class="collection">
+  <h4 class="pad-15 text-center">Your Game Collection</h4>
   <% if @user.games.count > 0 %>
   <ul class="no-list">
     <% @user.games.each do |game| %>
-      <li class="pad-10"><a href="/games/<%= game.id %>"><%= game.name %><img src="<%= game.thumbnail_url %>" class="tiny-pic"/></a></li>
+      <li class="text-center pad-10"><a href="/games/<%= game.id %>"><%= game.name %><img src="<%= game.thumbnail_url %>" class="tiny-pic"/></a></li>
     <% end %>
   </ul>
 
-  <div class="friends-circle">
-    <h4 class="pad-15">Games in your Circle</h4>
+  <div class="friends-circle text-center">
+    <h4 class="pad-15 text-center">Games in your Circle</h4>
     <% @user.friends.each do |friend| %>
-      <p class="pad-15"><strong><%= friend.firstname %></strong></p>
+
+    <div class="friend-games">
+
+      <p class="pad-5 left-20"><strong><%= friend.firstname %></strong></p>
         <% if friend.games.count > 0 %>
           <ul class="no-list">
             <% friend.games.each do |game| %>
@@ -23,6 +26,8 @@
         <% else %>
           <p><em>No games yet</em></p>
         <% end %>
+
+      </div>
     <% end %>
   </div>
 
