@@ -1,4 +1,11 @@
-<tr id="review_<%= review.id %>">
-  <td><%= review.rating %>   </td>
-  <td><%= review.description %></td>
-</tr>
+<article id="review_<%= review.id %>" class="round">
+	<img style="width:3em;" class="cow" src="http://jaredsilver.name/cows/cow2.png">
+	<% if  review.reviewer %>
+		<span><b><i><%= review.reviewer.firstname %></b></i> rated game:</span>
+		<span class="b purple"> <%= review.rating %> </span>
+	<% end %>
+	<center>
+		<p class="purple"><%= review.description %></p></center>
+</article>
+
+

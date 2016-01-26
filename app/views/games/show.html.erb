@@ -18,14 +18,11 @@
 
 <%= link_to 'Leave a review', new_game_review_path(@game), :remote => true, :id => "new_review_link" %>
 
-<table>
-  <tr>
-    <th>Rating</th><span></span>
-    <th>Description</th>
-  </tr>
-  <tbody id="reviews">
-  <% @game.reviews.each do |review| %>
-  <%= render "reviews/review", :review => review %>
+
+  <div id="reviews">
+  <% if @game.reviews.length > 0 %>
+    <% @game.reviews.each do |review| %>
+      <%= render "reviews/review", :review => review %>
+    <% end %>
   <% end %>
-</tbody>
-</table>
+</div>

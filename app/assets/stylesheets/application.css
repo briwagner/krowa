@@ -44,3 +44,28 @@
   color: white;
 }
 
+tbody#reviews{
+  text-align: center;
+}
+
+th {
+    padding: 1em;
+}
+
+.round {
+  border-radius: 2.5em;
+  padding: 1.5em;
+  margin: 2em;
+  background-color: #F3F3F3
+}
+
+.purple{
+  color: #7500EB}
+
+.b{
+  font-weight: bold;
+}
+
+.cow{
+  margin: 1em;
+}
