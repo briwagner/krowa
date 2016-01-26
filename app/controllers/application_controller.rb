@@ -10,15 +10,15 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-  def parse_xml(url)
-    #creates a hash with game ids as keys and game names as values
+  def parse_xml_titles(url)
+    #creates an array of hashes with game ids and game names as values
     doc = Nokogiri::XML(open(url))
     ids = doc.css("boardgame").map { |node| node.attr("objectid").to_s }
     names = doc.css("name").map { |node| node.children.text }
     game_info = []
     counter = 0
     names.each do |name|
-      game_info << { ids[counter] => name }
+      game_info << { id: ids[counter], name: name }
       counter +=1
     end
     return game_info
