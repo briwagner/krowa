@@ -1,7 +1,7 @@
 class CollectionsController < ActionController::Base
 
   def create
-    collection = Collection.new(user: session[:user_id], game: Game.find(params[:game_id])
+    collection = Collection.new(user: current_user, game: Game.find(params[:game_id])
     collection.save
   end
 
