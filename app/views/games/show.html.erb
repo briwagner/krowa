@@ -1,5 +1,6 @@
 
-<div class = "temporary-margin">
+<div >
+  <br>
   <img src=<%= @game.image_url %> height="500" width="500">
   <br>
   <br>
@@ -14,4 +15,8 @@
   <%= "Playing Time: #{@game.playing_time}" %>
   <br>
   <%= "Description: #{@game.description}" %>
+
+<%= form_tag(game_collections_path(@game)) do %>
+  <%= submit_tag("Add to collection") %>
+<% end %>
 </div>
