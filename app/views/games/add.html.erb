@@ -1,0 +1,13 @@
+<div class="game-detail">
+  <img src=<%= @game_data[:image_url] %> height="500" width="500" class="game-pic">
+  <h3><%= @game_data[:name] %></h3>
+  <p><strong>Min Players: </strong><%= @game_data[:min_players] %></p>
+  <p><strong>Max Players: </strong><%= @game_data[:max_players] %></p>
+  <p><strong>Playing Time: </strong><%= @game_data[:playing_time] %> minutes</p>
+  <p><strong>Description:</strong> <%= @game_data[:description] %></p>
+</div>
+<div class="pad-15">
+  <%= form_tag(add_game_create_path(@game_data) do %>
+    <%= submit_tag("Add to collection") %>
+  <% end %>
+</div>

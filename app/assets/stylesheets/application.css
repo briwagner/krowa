@@ -20,6 +20,7 @@
   border-bottom: 3px solid rgb(93,47,140);
   color: white;
   padding-top: 25px;
+  border-radius: 0 0 5px 5px;
 }
 
 .no-list {
@@ -84,10 +85,11 @@
   border-top: 1px solid #E5BF8C;
 }
 
-.friend-games p strong {
+.friend-games p strong, .text-bkg-antique {
   background-color: #E5BF8C;
   padding: 3px 8px;
   border-radius: 5px;
+  display: inline;
 }
 
 .search-bar {

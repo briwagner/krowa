@@ -23,6 +23,7 @@ class GamesController < ApplicationController
   end
 
   def add
+    parse_game_data(params[:api_id])
   end
 
   def add_create

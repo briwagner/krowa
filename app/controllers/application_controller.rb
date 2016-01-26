@@ -28,4 +28,18 @@ class ApplicationController < ActionController::Base
     new_string = words.gsub(/\s/, '+')
   end
 
+  def parse_game_data(api_id)
+    url = "http://boardgamegeek.com/xmlapi/boardgame/#{api_id}"
+    doc = Nokogiri::XML(open(url))
+    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    name = doc.css("name").children.text
+    min_players = doc.css("minplayers").children.text
+    max_players = doc.css("maxplayers").children.text
+    year_published = doc.css("yearpublished").children.text
+    playing_time = doc.css("playingtime").children.text
+    image_url = doc.css("image").children.text
+    description = doc.css("description").children.text
+    p @game_data = {name: name, min_players: min_players, max_players: max_players, year_published: year_published, playing_time: playing_time, image_url: image_url, description: description}
+  end
+
 end
