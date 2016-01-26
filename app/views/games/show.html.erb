@@ -7,14 +7,16 @@
   <p><strong>Playing Time: </strong><%= @game.playing_time %> minutes</p>
   <p><strong>Description:</strong> <%= @game.description %></p>
 
-  <% unless current_user.games.include?(@game) %>
-    <div class="pad-15">
-      <%= form_tag(game_collections_path(@game)) do %>
-        <%= submit_tag "Add to collection", class: "btn btn-info" %>
-      <% end %>
-    </div>
-  <% else %>
-    <p class="pad-10 text-bkg-antique"><em>This game is in your collection.</em></p>
+  <% if current_user %>
+    <% unless current_user.games.include?(@game) %>
+      <div class="pad-15">
+        <%= form_tag(game_collections_path(@game)) do %>
+          <%= submit_tag "Add to collection", class: "btn btn-info" %>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="pad-10 text-bkg-antique"><em>This game is in your collection.</em></p>
+    <% end %>
   <% end %>
 
 </div>
