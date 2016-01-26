@@ -23,11 +23,12 @@
         <li><a href="/games">Games</a></li>
       </ul>
     </div>
-    <div class="col-md-4">
-      <form>
-        <input type="text" name="search" placeholder="Search">
-        <input type="submit" value="Search">
-      </form>
+    <div class="col-md-4 search-bar">
+      <%= form_tag(games_path, method: "get") do %>
+        <%= label_tag(:name, "Search for:", class: "search-label") %>
+        <%= text_field_tag(:name) %>
+        <%= submit_tag("Search") %>
+      <% end %>
     </div>
   </div>
 
