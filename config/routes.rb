@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :games do
   	resources :reviews
-    resources :collections, shallow: true
+    resources :collections #, shallow: true
 
   end
 

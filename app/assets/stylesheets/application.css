@@ -45,6 +45,22 @@
   color: white;
 }
 
+.margin-b-10 {
+  margin-bottom: 10px;
+}
+
+.margin-no {
+  margin: 0;
+}
+
+.margin-10 {
+  margin: 10px 0;
+}
+
+.margin-5 {
+  margin: 5px 0;
+}
+
 .pad-15 {
   padding: 15px 0;
 }
@@ -87,9 +103,9 @@
 
 .friend-games p strong, .text-bkg-antique {
   background-color: #E5BF8C;
-  padding: 3px 8px;
+  padding: 5px 8px;
   border-radius: 5px;
-  display: inline;
+  display:inline-block;
 }
 
 .search-bar {
@@ -106,3 +122,4 @@
   height: auto;
   margin: 10px 0 10px 25px;
 }
+

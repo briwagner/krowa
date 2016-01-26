@@ -7,14 +7,25 @@
   <p><strong>Playing Time: </strong><%= @game.playing_time %> minutes</p>
   <p><strong>Description:</strong> <%= @game.description %></p>
 
-  <% unless current_user.games.include?(@game) %>
-    <div class="pad-15">
-      <%= form_tag(game_collections_path(@game)) do %>
-        <%= submit_tag "Add to collection", class: "btn btn-info" %>
-      <% end %>
-    </div>
-  <% else %>
-    <p class="pad-10 text-bkg-antique"><em>This game is in your collection.</em></p>
+  <% if current_user %>
+    <% unless current_user.games.include?(@game) %>
+      <div class="pad-15">
+        <%= form_tag(game_collections_path(@game)) do %>
+          <%= submit_tag "Add to collection", class: "btn btn-info" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-bkg-antique">
+        <p class="pad-10 margin-no"><em>This game is in your collection.</em></p>
+        <!-- form action path is not working below need to get correct collection for game && user -->
+        <form action="<%= game_collection_path(@game, Collection.find_by(user_id: current_user.id, game_id: @game.id) ) %>" method="POST" id="form-group remove-game-col" class="text-center">
+          <input type="submit" value="Remove" class="btn btn-xs btn-default margin-b-10">
+          <input type="hidden" name="_method" value="delete">
+          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        </form>
+      </div>
+
+    <% end %>
   <% end %>
 
 </div>

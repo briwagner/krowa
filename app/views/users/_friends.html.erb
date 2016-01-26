@@ -1,6 +1,5 @@
 <% if session[:user_id] %>
   <h3>Friends</h3>
-  <%= button_to('Find Friends', users_path, :class => 'btn btn-primary btn-sm', :method => :get)  %>
   <% if current_user.friends.count > 0 %>
     <ul class="no-list">
       <% current_user.friends.each do |friend| %>
@@ -11,4 +10,5 @@
     <% else %>
     <p><em>Link up with your friends to see their games.</em></p>
   <% end %>
+  <%= button_to('Find Friends', users_path, :class => 'btn btn-primary btn-sm', :method => :get)  %>
 <% end %>
