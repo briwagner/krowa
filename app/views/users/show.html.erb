@@ -1,1 +1,32 @@
-hi you're here
+<h3 class="text-center pad-15">Hey, <%= @user.firstname.upcase %></h3>
+
+
+<div class="text-center collection">
+  <h4 class="pad-15">Your Game Collection</h4>
+  <% if @user.games.count > 0 %>
+  <ul class="no-list">
+    <% @user.games.each do |game| %>
+      <li class="pad-10"><a href="/games/<%= game.id %>"><%= game.name %><img src="<%= game.thumbnail_url %>" class="tiny-pic"/></a></li>
+    <% end %>
+  </ul>
+
+  <div class="friends-circle">
+    <h4 class="pad-15">Games in your Circle</h4>
+    <% @user.friends.each do |friend| %>
+      <p class="pad-15"><strong><%= friend.firstname %></strong></p>
+        <% if friend.games.count > 0 %>
+          <ul class="no-list">
+            <% friend.games.each do |game| %>
+            <li class="pad-10"><a href="/games/<%= game.id %>"><%= game.name %><img src="<%= game.thumbnail_url %>" class="tiny-pic"/></a></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p><em>No games yet</em></p>
+        <% end %>
+    <% end %>
+  </div>
+
+  <% else %>
+    <p class="pad-15"><em>You don't have any games in your collection. <%= link_to 'Add some games!', games_path %></em></p>
+  <% end %>
+</div>

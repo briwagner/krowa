@@ -44,3 +44,27 @@
   color: white;
 }
 
+.pad-15 {
+  padding: 15px 0;
+}
+
+.pad-10 {
+  padding: 10px 0;
+}
+
+.collection {
+  border: 2px solid #efefef;
+  border-radius: 15px;
+}
+
+.tiny-pic {
+  height: 50px;
+  margin-left: 10px;
+}
+
+.friends-circle {
+  border-radius: 15px;
+  width: 98%;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
