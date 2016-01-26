@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container container-fluid">
 
-<%= yield %>
+  <div class="sidebar col-md-3">
+    <!-- friends section -->
+    <h2>Hello</h2>
+    <!-- category section -->
+  </div>
+
+  <div class="col-md-9">
+    <%= yield %>
+  </div>
+
+</div>
 
 </body>
 </html>
