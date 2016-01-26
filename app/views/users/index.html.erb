@@ -1,0 +1,27 @@
+<h2>Find Your Friends</h2>
+<div class="collection">
+
+<% @users.each do |user| %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <% if current_friend?(user.id) %>
+      <span class="badge">Friends</span>
+    <% elsif request_sent?(user.id) %>
+      <span class="badge">Request Pending</span>
+    <% elsif request_received?(user.id)%>
+      <span class="pull-right">
+      <%= button_to 'Delete Request', {:controller=>"friend_requests", :action=> "destroy", :id=> user.id}, :method=>:delete, :class => 'btn btn-danger btn-sm' %>
+      </span>
+      <span class="pull-right">
+      <%= button_to 'Accept Request', {:controller=>"friend_requests", :action=> "update", :id=>user.id}, :method=>:patch, :class => 'btn btn-success btn-sm' %>
+      </span>
+    <% else %>
+      <span class="pull-right">
+      <%= button_to 'Add Friend', {:controller=>"friend_requests", :action=> "create", :recipient_id=> user.id, :sender_id=>session[:user_id]}, :method=>:post, :class => 'btn btn-primary btn-sm' %>
+    </span>
+    <% end %>
+    <%= link_to user.fullname, user_path(user) %>
+  </li>
+</ul>
+<% end %>
+</div>

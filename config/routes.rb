@@ -17,5 +17,6 @@ Rails.application.routes.draw do
 
   end
 
+  resources :friend_requests, only: [:create, :destroy, :update]
 
 end
