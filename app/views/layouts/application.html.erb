@@ -17,6 +17,7 @@
           <li><a href="/users/new">Register</a></li>
           <li><a href="/login">Login</a></li>
         <% else %>
+          <li><a href="/users/<%= current_user.id %>"><%= current_user.firstname %></a></li>
           <li><a href="/logout">Logout</a></li>
         <% end %>
         <li><a href="/games">Games</a></li>

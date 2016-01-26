@@ -1,18 +1,10 @@
 <% if session[:user_id] %>
   <h3>Friends</h3>
   <% if current_user.friends.count > 0 %>
-    <ul>
+    <ul class="no-list">
       <% current_user.friends.each do |friend| %>
-        <li><%= friend.firstname %> <%= friend.lastname %> </li>
+        <li><a href="/users/<%= friend.id %>"><%= friend.firstname %> <%= friend.lastname %></a></li>
       <% end %>
     </ul>
   <% end %>
 <% end %>
-
-<!-- <h3>Friends</h3>
-<ul class="no-list">
-  <li><a href="#">Joe Smith</a></li>
-  <li><a href="#">Jane Doe</a></li>
-  <li><a href="#">Sally Bowles</a></li>
-  <li><a href="#">Dr. Jeykll</a></li>
-</ul> -->
