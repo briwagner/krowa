@@ -11,12 +11,10 @@ class ApplicationController < ActionController::Base
   end
 
   def parse_xml(url)
+    #creates a hash with game ids as keys and game names as values
     doc = Nokogiri::XML(open(url))
-    # p doc.xpath("//boardgames").children.attr("object_id")
     ids = doc.css("boardgame").map { |node| node.attr("objectid").to_s }
-
     names = doc.css("name").map { |node| node.children.text }
-
     game_info = []
     counter = 0
     names.each do |name|
@@ -29,4 +27,5 @@ class ApplicationController < ActionController::Base
   def fix_search_words(words)
     new_string = words.gsub(/\s/, '+')
   end
+
 end

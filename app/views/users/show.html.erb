@@ -1,1 +1,57 @@
-hi you're here
+<% if @user.id == session[:user_id] %>
+  <h3 class="text-center pad-15">Hey, <%= @user.firstname.upcase %></h3>
+
+
+  <div class="collection">
+    <h4 class="pad-15 text-center">Your Game Collection</h4>
+    <% if @user.games.count > 0 %>
+    <ul class="no-list">
+      <% @user.games.each do |game| %>
+        <li class="text-center pad-10"><a href="/games/<%= game.id %>"><%= game.name %><img src="<%= game.thumbnail_url %>" class="tiny-pic"/></a></li>
+      <% end %>
+    </ul>
+
+    <div class="friends-circle text-center">
+      <h4 class="pad-15 text-center">Games in your Circle</h4>
+      <% @user.friends.each do |friend| %>
+
+      <div class="friend-games">
+
+        <p class="pad-5 left-20"><strong><%= friend.firstname %></strong></p>
+          <% if friend.games.count > 0 %>
+            <ul class="no-list">
+              <% friend.games.each do |game| %>
+              <li class="pad-10"><a href="/games/<%= game.id %>"><%= game.name %><img src="<%= game.thumbnail_url %>" class="tiny-pic"/></a></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p><em>No games yet</em></p>
+          <% end %>
+
+        </div>
+      <% end %>
+    </div>
+
+    <% else %>
+      <p class="pad-15"><em>You don't have any games in your collection. <%= link_to 'Add some games!', games_path %></em></p>
+    <% end %>
+  </div>
+
+<% else %>
+  <h3 class="text-center pad-15"><%= @user.firstname.upcase %></h3>
+
+  <div class="collection">
+    <h4 class="pad-15 text-center">Game Collection</h4>
+    <% if @user.games.count > 0 %>
+    <ul class="no-list">
+      <% @user.games.each do |game| %>
+        <li class="text-center pad-10"><a href="/games/<%= game.id %>"><%= game.name %><img src="<%= game.thumbnail_url %>" class="tiny-pic"/></a></li>
+      <% end %>
+    </ul>
+
+    <% else %>
+      <p class="text-center"><em>No games yet</em></p>
+    <% end %>
+  </div>
+
+<% end %>
