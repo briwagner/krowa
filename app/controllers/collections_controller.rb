@@ -1,4 +1,4 @@
-class CollectionsController < ActionController::Base
+class CollectionsController < ApplicationController
 
   def create
     collection = Collection.new(user: current_user, game: Game.find(params[:game_id])

@@ -15,3 +15,13 @@ game_data.each do |data|
   Game.create(data)
 end
 
+fav_games.each do |data|
+  Game.create(data)
+end
+
+Tag.create(title: "Family")
+Tag.create(title: "Party")
+Tag.create(title: "Dice")
+Tag.create(title: "Card")
+Tag.create(title: "Strategy")
+Tag.create(title: "Trivia")

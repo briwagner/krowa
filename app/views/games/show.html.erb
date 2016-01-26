@@ -1,1 +1,17 @@
-<div
+
+<div class = "temporary-margin">
+  <img src=<%= @game.image_url %> height="500" width="500">
+  <br>
+  <br>
+  <%= "Name: #{@game.name}" %>
+  <br>
+  <%= "Rating: 5 Stars" %> <!-- PLACEHOLDER -->
+  <br>
+  <%= "Min Players: #{@game.min_players}" %>
+  <br>
+  <%= "Max Players: #{@game.max_players}" %>
+  <br>
+  <%= "Playing Time: #{@game.playing_time}" %>
+  <br>
+  <%= "Description: #{@game.description}" %>
+</div>

@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :firstname, presence: true, uniqueness: true
+  validates :password_digest, presence: true
+
   has_secure_password
   has_many :collections
   has_many :games, through: :collections
