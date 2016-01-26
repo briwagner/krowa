@@ -1,18 +1,18 @@
 <% if session[:user_id] %>
   <h3>Friends</h3>
-  <% if @user.friends.count > 0 %>
+  <% if current_user.friends.count > 0 %>
     <ul>
-      <% @user.friends.each do |friend| %>
+      <% current_user.friends.each do |friend| %>
         <li><%= friend.firstname %> <%= friend.lastname %> </li>
       <% end %>
     </ul>
   <% end %>
 <% end %>
 
-<h3>Friends</h3>
+<!-- <h3>Friends</h3>
 <ul class="no-list">
   <li><a href="#">Joe Smith</a></li>
   <li><a href="#">Jane Doe</a></li>
   <li><a href="#">Sally Bowles</a></li>
   <li><a href="#">Dr. Jeykll</a></li>
-</ul>
+</ul> -->

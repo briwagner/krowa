@@ -2,7 +2,7 @@
 
 <% @tags = Tag.all %>
 <% @tags.each do |tag| %>
-  <h5><%= link_to tag.title, tag_games_path(tag) %></h5>
+  <h5><%= link_to tag.title, tag_path(tag) %></h5>
 <% end %>
 
 
