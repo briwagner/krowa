@@ -1,22 +1,32 @@
+<div class="game-detail">
+  <img src=<%= @game.image_url %> height="500" width="500" class="game-pic">
+  <h3><%= "#{@game.name}" %></h3>
+  <p><strong>Rating: </strong><%= "5 Stars" %></p> <!-- PLACEHOLDER -->
+  <p><strong>Min Players: </strong><%= @game.min_players %></p>
+  <p><strong>Max Players: </strong><%= @game.max_players %></p>
+  <p><strong>Playing Time: </strong><%= @game.playing_time %> minutes</p>
+  <p><strong>Description:</strong> <%= @game.description %></p>
 
-<div >
-  <br>
-  <img src=<%= @game.image_url %> height="500" width="500">
-  <br>
-  <br>
-  <%= "Name: #{@game.name}" %>
-  <br>
-  <%= "Rating: 5 Stars" %> <!-- PLACEHOLDER -->
-  <br>
-  <%= "Min Players: #{@game.min_players}" %>
-  <br>
-  <%= "Max Players: #{@game.max_players}" %>
-  <br>
-  <%= "Playing Time: #{@game.playing_time}" %>
-  <br>
-  <%= "Description: #{@game.description}" %>
-
-<%= form_tag(game_collections_path(@game)) do %>
-  <%= submit_tag("Add to collection") %>
-<% end %>
+  <div class="pad-15">
+    <%= form_tag(game_collections_path(@game)) do %>
+      <%= submit_tag("Add to collection") %>
+    <% end %>
+  </div>
 </div>
+
+<div class="pad-15">
+  <%= link_to 'Leave a review', new_game_review_path(@game), :remote => true, :id => "new_review_link" %>
+</div>
+
+<table>
+  <tr>
+    <th>Rating</th><span></span>
+    <th>Description</th>
+  </tr>
+  <tbody id="reviews">
+  <% @game.reviews.each do |review| %>
+  <%= render "reviews/review", :review => review %>
+  <% end %>
+</tbody>
+</table>
+

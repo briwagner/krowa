@@ -1,4 +1,4 @@
-<ul>
+<ul class="no-list">
   <br>
   <% if !@games.empty? %>
     <% @games.each do |game| %>
@@ -12,3 +12,9 @@
       <p>No results</p>
   <% end %>
 </ul>
+<div>
+  <%= form_tag(games_path, method: "get") do %>
+    <%= text_field_tag :name, nil, placeholder: "Search" %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>

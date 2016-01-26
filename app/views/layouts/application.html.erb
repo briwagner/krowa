@@ -25,8 +25,7 @@
     </div>
     <div class="col-md-4 search-bar">
       <%= form_tag(games_path, method: "get") do %>
-        <%= label_tag(:name, "Search for:", class: "search-label") %>
-        <%= text_field_tag(:name) %>
+        <%= text_field_tag :name, nil, placeholder: "Search" %>
         <%= submit_tag("Search") %>
       <% end %>
     </div>

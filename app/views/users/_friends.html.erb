@@ -4,7 +4,10 @@
     <ul class="no-list">
       <% current_user.friends.each do |friend| %>
         <li><a href="/users/<%= friend.id %>"><%= friend.firstname %> <%= friend.lastname %></a></li>
+
       <% end %>
     </ul>
+    <% else %>
+    <p><em>Link up with your friends to see their games.</em></p>
   <% end %>
 <% end %>
