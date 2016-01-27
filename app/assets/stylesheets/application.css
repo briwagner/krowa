@@ -247,3 +247,10 @@ th {
   background-color: transparent;
 }
 
+.margin-left{
+  margin-left: 5em;
+}
+
+#tag_form{
+  display: inline;
+}
