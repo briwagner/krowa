@@ -1,7 +1,10 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    if params[:sort] == "popularity"
+      return @games = Game.all.sort_by {|game| game.average_score}.reverse
+    end
+      @games = Game.order(params[:sort])
     if params[:name].present?
       @games = Game.search(params[:name])
     end
