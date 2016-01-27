@@ -1,0 +1,19 @@
+.inline-text a:link{
+  text-decoration: none;
+  color:white;
+}
+
+.inline-text a:visited{
+  text-decoration: none;
+  color:white;
+}
+
+.inline-text a:hover{
+  text-decoration: none;
+  color:white;
+}
+
+.inline-text a:active{
+  text-decoration: none;
+  color:white;
+}

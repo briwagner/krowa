@@ -123,3 +123,48 @@
   margin: 10px 0 10px 25px;
 }
 
+tbody#reviews{
+  text-align: center;
+}
+
+th {
+    padding: 1em;
+}
+
+.round {
+  border-radius: 2.5em;
+  padding: 1.5em;
+  margin: 2em;
+  background-color: #F3F3F3
+}
+
+.purple{
+  color: #7500EB}
+
+.b{
+  font-weight: bold;
+}
+
+.cow{
+  margin: 1em;
+}
+
+.right {
+  float: right;
+  color: grey;
+}
+
+span.right {
+  margin: -0.5em;
+}
+
+span a {
+  margin: 0.2em;
+  color: grey;
+}
+
+span a:hover{
+  color:black;
+  text-decoration:none;
+}
+

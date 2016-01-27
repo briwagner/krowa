@@ -20,6 +20,7 @@ gem 'bcrypt'
 gem 'bootstrap_form'
 gem 'searchkick'
 gem 'http'
+gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

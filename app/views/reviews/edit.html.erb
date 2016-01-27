@@ -1,0 +1,9 @@
+<center>
+	<%= form_for([@game,@review], :html => {:class => "form-horizontal center"}) do |f| %>
+		<h2>Update a review</h2>
+		<%= f.text_area(:description) %><br />
+		<div class="form-actions">
+		<%= f.submit %>
+		</div>
+	<% end %>
+<center>

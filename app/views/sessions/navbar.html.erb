@@ -1,6 +1,6 @@
   <div class="col-md-12 main-nav">
     <div class="col-md-8">
-    <h3 class="inline-text">Welcome to Game Cow!</h3>
+    <h3 class="inline-text"><%= link_to 'Welcome to Game Cow!', root_path %></h3>
       <ul class="no-list inline-list">
         <% unless session[:user_id] %>
           <li><a href="/users/new">Register</a></li>

@@ -1,4 +1,19 @@
-<tr id="review_<%= review.id %>">
-  <td><%= review.rating %>   </td>
-  <td><%= review.description %></td>
-</tr>
+<article id="review_<%= review.id %>" class="round">
+	<span class="right"><i>created <%= time_ago_in_words(review.created_at) %></i></span>
+	<img style="width:3em;" class="cow" src="http://jaredsilver.name/cows/cow2.png">
+	<% if  review.reviewer %>
+		<span><b><i><%= review.reviewer.firstname %></b></i> rated game:</span>
+		<span class="b purple"> <%= review.rating %> </span>
+	<% end %>
+	<center>
+		<p class="purple"><%= review.description %></p></center>
+	<span class="right">
+	<%= link_to 'Edit', edit_game_review_path(review.game,review) %> |	
+	<% if manageable(review.reviewer.id) %>
+		<%= link_to 'Destroy', game_review_path(review.game,review), method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+		
+	<% end %>
+	<span>
+</article>
+
+
