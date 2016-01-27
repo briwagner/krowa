@@ -1,0 +1,10 @@
+<h2><%= @title %></h2>
+<h4>Members</h4>
+
+<% @group.each do |member| %>
+<ul class="list-group">
+  <li class="list-group-item">
+      <%= link_to member.fullname, user_path(member) %>
+  </li>
+</ul>
+<% end %>
