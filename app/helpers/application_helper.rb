@@ -30,6 +30,11 @@ module ApplicationHelper
     p doc
   end
 
+  def sortable(column, title = nil)
+    title ||=column.titleize
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, :sort => column, :direction => direction
+  end
 
   def manageable(id)
   	current_user.id == id.to_i

@@ -1,7 +1,12 @@
 class GamesController < ApplicationController
+  helper_method :sort_column, :sort_direction
+  include ApplicationHelper
 
   def index
-    @games = Game.all.sort { |a,b| a.name.downcase <=> b.name.downcase }
+    if params[:sort] == "popularity"
+      return @games = Game.all.sort_by {|game| game.average_score}.reverse
+    end
+      @games = Game.order(sort_column + " " + sort_direction)
     if params[:name].present?
       @games = Game.search(params[:name])
     end
@@ -35,6 +40,16 @@ class GamesController < ApplicationController
         redirect_to games_path
       end
     end
+  end
+
+  private 
+
+  def sort_column
+    params[:sort] || "name"
+  end
+
+  def sort_direction
+    params[:direction] || "asc"
   end
 
 end
