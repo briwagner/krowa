@@ -8,6 +8,7 @@ class Game < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  validates :api_id, uniqueness: true
 
   def short_description
     short_string = self.description.slice(0..200) + ". . . "
@@ -18,7 +19,8 @@ class Game < ActiveRecord::Base
     self.reviews.each do |review|
       total += review.rating
     end
-    total/self.reviews.length.to_f
+    return total/self.reviews.length if self.reviews.length != 0
+    return 0
   end
 
 end

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :tags, only: [:show, :new, :create, :destroy]
-
+  resources :groups, only: [:index, :show]
+  resources :memberships, only: [:create, :destroy]
 
   get "/games/add" => "games#add_index", as: :add_game_index
   get "/games/add/:api_id" => "games#add_show", as: :add_game_show

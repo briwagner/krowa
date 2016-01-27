@@ -9,13 +9,14 @@
           <li><a href="/users/<%= current_user.id %>"><%= current_user.firstname %></a></li>
           <li><a href="/logout">Logout</a></li>
         <% end %>
-        <li><a href="/games">Games</a></li>
+          <li><a href="/groups">Groups</a></li>
+          <li><a href="/games">Games</a></li>
       </ul>
     </div>
     <div class="col-md-4 search-bar">
       <%= form_tag(games_path, method: "get") do %>
         <%= text_field_tag :name, nil, placeholder: "Search" %>
-        <%= submit_tag "Search", class: "btn btn-info" %>
+        <%= submit_tag "Search", class: "btn btn-purple" %>
       <% end %>
     </div>
   </div>

@@ -1,3 +1,9 @@
+  <div class="well inline-headers">
+    <h6>Sort Games By:</h6>
+    <h6><%= link_to "Most Popular", :sort => "popularity" %></h6>
+    <h6><%= sortable "name" %></h6>
+    <h6><%= sortable "created_at" %></h6>
+  </div>
 <ul class="no-list">
   <br>
   <% if !@games.empty? %>
@@ -14,6 +20,6 @@
 </ul>
 <div class="pad-15">
   <%= form_tag("/games/add", method: "get") do %>
-    <%= submit_tag("Add to Database") %>
+    <%= submit_tag "Search for New Games", class: "btn btn-purple" %>
   <% end %>
 </div>

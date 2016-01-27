@@ -29,3 +29,7 @@ games.each_with_index do |game, index|
   game.taggings.create(tag_id: tags[rand(0...6)].id )
 end
 
+Group.create(name: "Work Friends")
+Group.create(name: "School Friends")
+Group.create(name: "LYLAS")
+Group.create(name: "Famous Birds")

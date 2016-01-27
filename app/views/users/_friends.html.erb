@@ -10,5 +10,17 @@
     <% else %>
     <p><em>Link up with your friends to see their games.</em></p>
   <% end %>
-  <%= button_to('Find Friends', users_path, :class => 'btn btn-primary btn-sm', :method => :get)  %>
+  <%= button_to('Find Friends', users_path, :class => 'btn btn-purple btn-sm', :method => :get)  %>
 <% end %>
+  <% if current_user && current_user.groups.length > 0 %>
+    <div id="groups">
+      <h4>Groups</h4>
+      <ul class="no-list margin-10">
+      <% current_user.groups.each do |group| %>
+        <li>
+        <a href="/groups/<%= group.id %>"><%= group.name %></a>
+      </li>
+      <% end %>
+    </ul>
+    </div>
+  <% end %>
