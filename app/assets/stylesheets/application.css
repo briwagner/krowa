@@ -196,6 +196,16 @@ th {
   color: white;
 }
 
+.btn-purple {
+  background-color: #3B1E59;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: dimgray;
+  color: white;
+}
+
 .smaller{
   font-size: 15px;
   padding: 7px 30px 7px 28px;
