@@ -19,6 +19,8 @@
 <%= link_to 'Leave a review', new_game_review_path(@game), :remote => true, :id => "new_review_link" %>
 
 
+
+
   <div id="reviews">
   <% if @game.reviews.length > 0 %>
     <% @game.reviews.each do |review| %>

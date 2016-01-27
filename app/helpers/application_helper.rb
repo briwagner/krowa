@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def manageable(id)
-  	@current_user.id = id
+  	current_user.id == id.to_i
   end
 end
