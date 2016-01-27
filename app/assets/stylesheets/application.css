@@ -132,20 +132,17 @@ th {
 }
 
 .round {
-  border-radius: 2.5em;
+  border-radius: 1em;
   padding: 1.5em;
   margin: 2em;
   background-color: #F3F3F3
 }
 
-.purple{
-  color: #7500EB}
-
-.b{
-  font-weight: bold;
+.purple {
+  color: rgb(93,47,140)
 }
 
-.cow{
+.cow {
   margin: 1em;
 }
 
@@ -154,17 +151,17 @@ th {
   color: grey;
 }
 
-span.right {
+#reviews span.right {
   margin: -0.5em;
 }
 
-span a {
+#reviews span a {
   margin: 0.2em;
   color: grey;
 }
 
-span a:hover{
-  color:black;
+#reviews span a:hover{
+  color: rgb(93,47,140);
   text-decoration:none;
 }
 
