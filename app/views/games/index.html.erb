@@ -9,7 +9,7 @@
   <% if !@games.empty? %>
     <% @games.each do |game| %>
       <li>
-        <img src=<%= game.thumbnail_url %> style="width:35px;height:35px;">
+        <a href ="games/<%= game.id %>"> <img src=<%= game.thumbnail_url %> style="width:35px;height:35px;"></a>
         <a href="games/<%= game.id %>"><%= game.name %></a>
         <p><%= game.short_description %></p>
       </li>
@@ -20,6 +20,6 @@
 </ul>
 <div class="pad-15">
   <%= form_tag("/games/add", method: "get") do %>
-    <%= submit_tag("Add to Database") %>
+    <%= submit_tag "Search for New Games", class: "btn btn-purple" %>
   <% end %>
 </div>

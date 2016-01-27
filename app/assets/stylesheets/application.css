@@ -9,7 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ *= require font-awesome
  *= require_tree .
  *= require_self
 
@@ -243,3 +243,24 @@ th {
    position: absolute;
 }
 
+.plus-sign {
+  color: #1FA67A;
+  margin-right:5px;
+  border: transparent;
+  background-color: transparent;
+}
+
+.minus-sign {
+  color:grey;
+  margin-right:5px;
+  border: transparent;
+  background-color: transparent;
+}
+
+.margin-left{
+  margin-left: 5em;
+}
+
+#tag_form{
+  display: inline;
+}
