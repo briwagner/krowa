@@ -15,7 +15,7 @@
     <!-- friends section -->
     <%= render template: "users/_friends"%>
     <!-- category section -->
-    <% if @game %>
+    <% if @game && current_user && current_user.is_admin? %>
       <%= render("tags/gamesidebar", :game => @game) %>
     <% else %>
       <%= render template: "tags/_sidebar" %>
