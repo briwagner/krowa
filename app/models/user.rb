@@ -30,4 +30,16 @@ class User < ActiveRecord::Base
     self.firstname + " " + self.lastname
   end
 
+  def get_collection(game_id)
+    @collections = self.collections
+    @collections.each do |col|
+      p col
+      if col.id == game_id
+        return col
+      else
+        return false
+      end
+    end
+  end
+
 end

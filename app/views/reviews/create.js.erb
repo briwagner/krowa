@@ -2,7 +2,7 @@
 
 	$('#new_review').remove();
 	$('#new_review_link').show();
-	$('#reviews').append('<%= j render("review", :review => @review) %>');
+	$('#reviews').prepend('<%= j render("review", :review => @review) %>');
 
 <% else %>
 
