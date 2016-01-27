@@ -31,15 +31,14 @@ class ApplicationController < ActionController::Base
   def parse_game_data(api_id)
     url = "http://boardgamegeek.com/xmlapi/boardgame/#{api_id}"
     doc = Nokogiri::XML(open(url))
-    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     name = doc.css("name").children.text
     min_players = doc.css("minplayers").children.text
     max_players = doc.css("maxplayers").children.text
-    year_published = doc.css("yearpublished").children.text
     playing_time = doc.css("playingtime").children.text
     image_url = doc.css("image").children.text
     description = doc.css("description").children.text
-    p @game_data = {name: name, min_players: min_players, max_players: max_players, year_published: year_published, playing_time: playing_time, image_url: image_url, description: description}
+    thumbnail_url = doc.css("thumbnail").children.text
+    @game_data = {api_id: api_id, thumbnail_url: thumbnail_url, name: name, min_players: min_players, max_players: max_players, playing_time: playing_time, image_url: image_url, description: description}
   end
 
 end

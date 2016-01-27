@@ -23,10 +23,17 @@ class GamesController < ApplicationController
   end
 
   def add
-    parse_game_data(params[:api_id])
+    @game_data = parse_game_data(params[:api_id])
+    flash[:game_data] = @game_data
   end
 
   def add_create
+    if flash[:game_data]
+      game = Game.new(flash[:game_data])
+      if game.save
+        redirect_to games_path
+      end
+    end
   end
 
 end
