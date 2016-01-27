@@ -8,7 +8,7 @@
     <% if @game_data != nil %>
     <% @game_data.each do |game| %>
       <li>
-        <a href="http://www.boardgamegeek.com/xmlapi/boardgame/<%= game[:id] %>"><%= game[:name] %></a>
+        <a href="/games/add/<%= game[:id] %>"><%= game[:name] %></a>
       </li>
     <% end %>
     <% else %>

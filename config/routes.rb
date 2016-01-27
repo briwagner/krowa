@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   get "/games/add" => "games#add_index", as: :add_game_index
-  get "/games/add/:api_id" => "games#add", as: :add_game
+  get "/games/add/:api_id" => "games#add_show", as: :add_game_show
   post "/games/add" => "games#add_create", as: :add_game_create
 
   resources :games do
