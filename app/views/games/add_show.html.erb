@@ -7,7 +7,7 @@
   <p><strong>Description:</strong> <%= @game_data[:description] %></p>
 </div>
 <div class="pad-15">
-  <%= form_tag(add_game_create_path(@game_data) do %>
-    <%= submit_tag("Add to collection") %>
+  <%= form_tag("/games/add", method: "post") do %>
+    <%= submit_tag("Add to Database") %>
   <% end %>
 </div>

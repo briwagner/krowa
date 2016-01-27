@@ -7,8 +7,11 @@ class CollectionsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    game = Game.find(params[:game_id])
     collection = Collection.find(params[:id])
     collection.destroy
+
+    redirect_to game
   end
 end

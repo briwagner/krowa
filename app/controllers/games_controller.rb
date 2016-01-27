@@ -14,6 +14,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @reviews = @game.reviews.order('created_at DESC')
     if params[:name].present?
       search_words = fix_search_words(params[:name])
       parse_xml_titles("http://www.boardgamegeek.com/xmlapi/search?search=#{search_words}")
@@ -27,11 +28,18 @@ class GamesController < ApplicationController
     end
   end
 
-  def add
-    parse_game_data(params[:api_id])
+  def add_show
+    @game_data = parse_game_data(params[:api_id])
+    flash[:game_data] = @game_data
   end
 
   def add_create
+    if flash[:game_data]
+      game = Game.new(flash[:game_data])
+      if game.save
+        redirect_to games_path
+      end
+    end
   end
 
   private 
