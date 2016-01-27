@@ -1,4 +1,5 @@
 class FriendRequestsController < ApplicationController
+  include ApplicationHelper
 
   def create
     @request = FriendRequest.create(request_params)
@@ -6,9 +7,9 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
-    @request = FriendRequest.find(params[:id])
+    @request = find_request(request_params[:id])
     @request.destroy
-    redirect_to '/users/show'
+    redirect_to :back
   end
 
   def update

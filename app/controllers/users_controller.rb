@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @people = User.all  
+    @users = []
+    @people.each do |person| #this logic removes current_user from @users so user will not see him/herself from list of all users
+      unless person.id == session[:user_id]
+        @users << person
+      end
+    end
   end
 
   def show
