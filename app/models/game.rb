@@ -19,7 +19,8 @@ class Game < ActiveRecord::Base
     self.reviews.each do |review|
       total += review.rating
     end
-    total/self.reviews.length.to_f
+    return total/self.reviews.length if self.reviews.length != 0
+    return 0
   end
 
 end
