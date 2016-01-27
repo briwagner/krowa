@@ -25,3 +25,8 @@ Tag.create(title: "Dice")
 Tag.create(title: "Card")
 Tag.create(title: "Strategy")
 Tag.create(title: "Trivia")
+
+Group.create(name: "Work Friends")
+Group.create(name: "School Friends")
+Group.create(name: "LYLAS")
+Group.create(name: "Famous Birds")

@@ -17,3 +17,8 @@
   text-decoration: none;
   color:white;
 }
+
+.inline-headers h6{
+  display: inline;
+  margin-left: 3em;
+}
