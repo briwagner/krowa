@@ -1,18 +1,23 @@
 <article id="review_<%= review.id %>" class="round">
-	<span class="right"><i>created <%= time_ago_in_words(review.created_at) %> ago</i></span>
+	<span class="right"><em>created <%= time_ago_in_words(review.created_at) %> ago</em></span>
+
 	<img style="width:3em;" class="cow" src="http://jaredsilver.name/cows/cow2.png">
+
 	<% if  review.reviewer %>
 		<span><strong><em><%= review.reviewer.firstname %></strong></em> rated game:</span>
 		<span class="purple"> <strong><%= review.rating %> </strong></span>
 	<% end %>
+
 	<center>
 		<p class="purple"><%= review.description %></p></center>
 	<span class="right">
 
-	<%= link_to 'Edit', edit_game_review_path(review.game,review) %> |
+	<% if current_user %>
+		<%= link_to 'Edit', edit_game_review_path(review.game,review) %> |
 
-	<% if manageable(review.reviewer.id) %>
-		<%= link_to 'Destroy', game_review_path(review.game,review), method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+		<% if manageable(review.reviewer.id) %>
+			<%= link_to 'Destroy', game_review_path(review.game,review), method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+		<% end %>
 	<% end %>
 
 	<span>

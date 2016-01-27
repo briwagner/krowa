@@ -49,16 +49,27 @@
   margin-bottom: 10px;
 }
 
+.margin-lr-10 {
+  margin: 0 10px;
+}
+
 .margin-no {
   margin: 0;
 }
 
+.margin-bot-10 {
+  margin-bottom: 10px;
+}
 .margin-10 {
   margin: 10px 0;
 }
 
 .margin-5 {
   margin: 5px 0;
+}
+
+.spacer {
+  height: 10px;
 }
 
 .pad-15 {
@@ -165,36 +176,29 @@ th {
   text-decoration:none;
 }
 
-.reviews-section{
+.reviews-section {
   display: inline-block;
+  padding-top: 10px;
 }
 
-.create-review{
+.create-review {
 
 }
 
 .btn-review {
-  -webkit-border-radius: 15;
-  -moz-border-radius: 15;
-  border-radius: 15px;
-  font-family: Arial;
   color: #ffffff;
-  font-size: 24px;
   background: #8797a1;
-  padding: 10px 39px 10px 36px;
-  text-decoration: none;
+}
+
+
+.btn-review:hover {
+  background: #663399;
+  color: white;
 }
 
 .smaller{
   font-size: 15px;
   padding: 7px 30px 7px 28px;
-}
-
-.btn-review:hover {
-  background: #6f09e3;
-  text-decoration: none;
-  color:white;
-
 }
 
 .white-pink {
@@ -228,3 +232,4 @@ th {
    content: "\2605";
    position: absolute;
 }
+
