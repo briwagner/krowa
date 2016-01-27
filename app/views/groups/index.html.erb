@@ -1,0 +1,17 @@
+<h2>All Groups</h2>
+
+
+<% @groups.each do |group| %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <% if group_member?(session[:user_id], group.id) %>
+    <span class="badge">Member</span>
+    <% elsif current_user %>
+      <span class="pull-right">
+      <%= button_to 'Join Group', {:controller=>"memberships", :action=> "create", :user_id=>session[:user_id], :group_id=>group.id},:method=>:post, :class => 'btn btn-primary btn-sm' %>
+      </span>
+    <% end %>
+      <%= link_to group.name, group_path(group) %>
+  </li>
+</ul>
+<% end %>

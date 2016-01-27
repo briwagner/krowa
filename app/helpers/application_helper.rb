@@ -3,7 +3,6 @@ module ApplicationHelper
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-
   def current_friend?(potential_friend)
     current_user.friends.each do |friend|
       if friend.id == potential_friend
@@ -11,6 +10,11 @@ module ApplicationHelper
       end
     end
     false
+  end
+
+  def group_member?(user, group)
+    return true if Membership.find_by(group_id: group, user_id: user) != nil
+    return false
   end
 
   def request_sent?(id)

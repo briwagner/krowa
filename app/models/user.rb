@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :collections
+  has_many :memberships
+  has_many :groups, through: :memberships
   has_many :games, through: :collections
   has_many :reviews, foreign_key: :reviewer_id
   has_many :sent_requests, class_name: "FriendRequest", foreign_key: :sender_id
