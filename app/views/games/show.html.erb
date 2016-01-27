@@ -19,18 +19,16 @@
 
 </div>
 
+<section class="reviews-section">
 <div class="pad-15">
-  <%= link_to 'Leave a review', new_game_review_path(@game), :remote => true, :id => "new_review_link" %>
+  <%= link_to 'Leave a review', new_game_review_path(@game), :remote => true, :id => "new_review_link", :class => "btn-review" %>
 </div>
-
-
-
-
-  <div id="reviews">
+<div id="reviews">
   <% if @game.reviews.length > 0 %>
-    <% @game.reviews.each do |review| %>
+    <% @reviews.each do |review| %>
       <%= render "reviews/review", :review => review %>
     <% end %>
   <% end %>
 </div>
+</section>
 

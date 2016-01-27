@@ -9,6 +9,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @reviews = @game.reviews.order('created_at DESC')
     if params[:name].present?
       search_words = fix_search_words(params[:name])
       parse_xml_titles("http://www.boardgamegeek.com/xmlapi/search?search=#{search_words}")
