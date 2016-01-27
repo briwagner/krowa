@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   def find_request(id)
-    FriendRequest.find_by(sender_id: session[:user_id], recipient_id: id) || FriendRequest.find_by(sender_id: id, recipient_id: session[:user_id])
+    return FriendRequest.find_by(sender_id: session[:user_id], recipient_id: id) || FriendRequest.find_by(sender_id: id, recipient_id: session[:user_id])
   end
 
   def parse_xml(url)
