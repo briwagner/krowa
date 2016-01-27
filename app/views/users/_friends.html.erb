@@ -12,3 +12,12 @@
   <% end %>
   <%= button_to('Find Friends', users_path, :class => 'btn btn-purple btn-sm', :method => :get)  %>
 <% end %>
+  <% if current_user && current_user.groups.length > 0 %>
+    <div id="groups">
+      <% current_user.groups.each do |group| %>
+        <li>
+        <a href="/groups/<%= group.id %>"><%= group.name %></a>
+      </li>
+      <% end %>
+    </div>
+  <% end %>
