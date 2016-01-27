@@ -1,9 +1,9 @@
-
-
-  <li><%= link_to "Popularity", :sort => "popularity" %></li>
-  <li><%= link_to "Name", :sort => "name" %></li>
-  <li><%= link_to "Date Added", :sort => "created_at" %></li>
-
+  <div class="well inline-headers">
+    <h6>Sort Games By:</h6>
+    <h6><%= link_to "Most Popular", :sort => "popularity" %></h6>
+    <h6><%= sortable "name" %></h6>
+    <h6><%= sortable "created_at" %></h6>
+  </div>
 <ul class="no-list">
   <br>
   <% if !@games.empty? %>
