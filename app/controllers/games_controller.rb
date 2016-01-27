@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    @games = Game.all.sort { |a,b| a.name.downcase <=> b.name.downcase }
     if params[:name].present?
       @games = Game.search(params[:name])
     end
@@ -23,11 +23,18 @@ class GamesController < ApplicationController
     end
   end
 
-  def add
-    parse_game_data(params[:api_id])
+  def add_show
+    @game_data = parse_game_data(params[:api_id])
+    flash[:game_data] = @game_data
   end
 
   def add_create
+    if flash[:game_data]
+      game = Game.new(flash[:game_data])
+      if game.save
+        redirect_to games_path
+      end
+    end
   end
 
 end

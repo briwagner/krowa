@@ -12,9 +12,8 @@
       <p>No results</p>
   <% end %>
 </ul>
-<div>
-  <%= form_tag(games_path, method: "get") do %>
-    <%= text_field_tag :name, nil, placeholder: "Search" %>
-    <%= submit_tag("Search") %>
+<div class="pad-15">
+  <%= form_tag("/games/add", method: "get") do %>
+    <%= submit_tag("Add to Database") %>
   <% end %>
 </div>
