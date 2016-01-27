@@ -11,6 +11,22 @@ class ReviewsController < ApplicationController
 		end
 	end
 
+	def edit
+		@review = Review.find(params[:id])
+		@game = Game.find(params[:game_id])
+	end
+
+	def update
+	  @game = Game.find(params[:game_id])
+      @review = Review.find(params[:id])
+      if @review.update(params_review)
+        redirect_to @game
+      else
+        @errors = @review.errors.full_messages
+        render 'new'
+      end
+    end
+
 	def show
 		@rewiew = Review.find(params[:id])
 	end
@@ -33,10 +49,23 @@ class ReviewsController < ApplicationController
 	  end
 	end
 
+
+	def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    @game = Game.find(params[:game_id])
+
+    respond_to do |format|
+      format.html { redirect_to @game }
+      format.json { head :no_content }
+      format.js
+    end
+  end
+
 	private
 
 	def params_review
-		params.require(:review).permit(:rating, :description, :game_id)
+		params.require(:review).permit(:rating, :description)
 	end
 
 	def find_review
