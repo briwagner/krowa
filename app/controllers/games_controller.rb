@@ -38,6 +38,9 @@ class GamesController < ApplicationController
       game = Game.new(flash[:game_data])
       if game.save
         redirect_to games_path
+      else
+        @game_data = flash[:game_data]
+        render
       end
     end
   end

@@ -8,6 +8,7 @@ class Game < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  validates :api_id, uniqueness: true
 
   def short_description
     short_string = self.description.slice(0..200) + ". . . "
