@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get "/games/add/:api_id" => "games#add_show", as: :add_game_show
   post "/games/add" => "games#add_create", as: :add_game_create
 
+  post "/games/:game_id/taggings/:id" => "taggings#create"
+  delete "/games/:game_id/taggings/:id" => "taggings#destroy"
+
   resources :games do
   	resources :reviews
     resources :collections #, shallow: true

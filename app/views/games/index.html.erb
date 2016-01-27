@@ -3,7 +3,7 @@
   <% if !@games.empty? %>
     <% @games.each do |game| %>
       <li>
-        <img src=<%= game.thumbnail_url %> style="width:35px;height:35px;">
+        <a href ="games/<%= game.id %>"> <img src=<%= game.thumbnail_url %> style="width:35px;height:35px;"></a>
         <a href="games/<%= game.id %>"><%= game.name %></a>
         <p><%= game.short_description %></p>
       </li>

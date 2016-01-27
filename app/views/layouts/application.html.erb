@@ -15,7 +15,11 @@
     <!-- friends section -->
     <%= render template: "users/_friends"%>
     <!-- category section -->
-    <%= render template: "tags/_sidebar" %>
+    <% if @game %>
+      <%= render("tags/gamesidebar", :game => @game) %>
+    <% else %>
+      <%= render template: "tags/_sidebar" %>
+    <% end %>
   </div>
 
   <div class="col-md-9">

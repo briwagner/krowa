@@ -2,15 +2,9 @@
 
 <% @tags = Tag.all %>
 <% @tags.each do |tag| %>
-  <h5><%= link_to tag.title, tag_path(tag) %></h5>
+<h5><%= form_tag("", method: "post") do %>
+  </button><%= link_to tag.title, tag_path(tag) %> <% end %>
+</h5>
 <% end %>
 
 
-<!-- <ul>
-  <li>Dice Games</li>
-  <li>Card Games</li>
-  <li>Strategy Games</li>
-  <li>Party Games</li>
-  <li>Trivia Games</li>
-  <li>Family Games</li>
-</ul> -->
