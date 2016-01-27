@@ -15,10 +15,3 @@ class TaggingsController < ApplicationController
   end
 
 end
-
-  def tagging
-    tagging = Tagging.new(game_id: params[:game_id], tag_id: params[:id] )
-    if tagging.save
-      redirect_to game_path(Game.find(params[:game_id]))
-    end
-  end
