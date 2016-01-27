@@ -1,6 +1,6 @@
 
-<%= form_for([@game, @game.reviews.build], remote: true, id: 'new_review') do |f| %>
-	<h2>Leave a review</h2>
+<%= simple_form_for([@game, @game.reviews.build], remote: true, id: 'new_review', defaults: { input_html: { class: 'default_class' } }) do |f| %>
+	<h2 class="purple">Leave a review</h2>
   <% if @game.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@game.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -15,18 +15,18 @@
 
 
 
-	<%= f.label(:rating, "1") %>
+	<%= f.label(:rating, "★") %>
 	<%= f.radio_button(:rating, 1) %>
-	<%= f.label(:rating, "2") %> 
+	<%= f.label(:rating, "★") %>
 	<%= f.radio_button(:rating, 2) %>
-	<%= f.label(:rating, "3") %>
+	<%= f.label(:rating, "★") %>
 	<%= f.radio_button(:rating, 3) %>
-	<%= f.label(:rating, "4") %>
+	<%= f.label(:rating, "★") %>
 	<%= f.radio_button(:rating, 4) %>
-	<%= f.label(:rating, "5") %>
-	<%= f.radio_button(:rating, 5) %><br />
-	  <%= f.text_area :description %><br />
+	<%= f.label(:rating, "★") %>
+	<%= f.radio_button(:rating, 5) %><span><b> Rate!</b></span><br />
+	<%= f.text_area :description, class: 'white-pink' %><br />
 
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-sm btn-review' %>
 
 <% end %>

@@ -7,31 +7,44 @@
   <p><strong>Playing Time: </strong><%= @game.playing_time %> minutes</p>
   <p><strong>Description:</strong> <%= @game.description %></p>
 
-  <% unless current_user.games.include?(@game) %>
-    <div class="pad-15">
-      <%= form_tag(game_collections_path(@game)) do %>
-        <%= submit_tag "Add to collection", class: "btn btn-info" %>
-      <% end %>
+  <% if current_user %>
+    <% unless current_user.games.include?(@game) %>
+      <div class="pad-15">
+        <%= form_tag(game_collections_path(@game)) do %>
+          <%= submit_tag "Add to collection", class: "btn btn-info" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-bkg-antique">
+        <p class="pad-10 margin-no"><em>This game is in your collection.</em></p>
+        <!-- form action path is not working below need to get correct collection for game && user -->
+        <form action="<%= game_collection_path(@game, Collection.find_by(user_id: current_user.id, game_id: @game.id) ) %>" method="POST" id="form-group remove-game-col" class="text-center">
+          <input type="submit" value="Remove" class="btn btn-xs btn-default margin-b-10">
+          <input type="hidden" name="_method" value="delete">
+          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        </form>
+      </div>
+
+    <% end %>
+  <% end %>
+
+</div>
+
+<section class="reviews-section collection">
+
+  <% if current_user %>
+    <div class="col-md-8 col-md-offset-2">
+      <%= link_to 'Leave a review', new_game_review_path(@game), :remote => true, :id => "new_review_link", :class => "btn btn-sm btn-block btn-review" %>
     </div>
-  <% else %>
-    <p class="pad-10 text-bkg-antique"><em>This game is in your collection.</em></p>
+    <div class="spacer"> </div>
   <% end %>
 
-</div>
-
-<div class="pad-15">
-  <%= link_to 'Leave a review', new_game_review_path(@game), :remote => true, :id => "new_review_link" %>
-</div>
-
-<table>
-  <tr>
-    <th>Rating</th><span></span>
-    <th>Description</th>
-  </tr>
-  <tbody id="reviews">
-  <% @game.reviews.each do |review| %>
-  <%= render "reviews/review", :review => review %>
+<div id="reviews">
+  <% if @game.reviews.length > 0 %>
+    <% @reviews.each do |review| %>
+      <%= render "reviews/review", :review => review %>
+    <% end %>
   <% end %>
-</tbody>
-</table>
+</div>
+</section>
 

@@ -1,0 +1,9 @@
+<center>
+	<%= simple_form_for([@game,@review], :html => {:class => "form-horizontal center"}) do |f| %>
+		<h2 class="purple">Update a review</h2>
+		<%= f.text_area :description, class: 'white-pink'  %><br />
+		<div class="form-actions">
+		<%= f.submit class: 'btn btn-review smaller' %>
+		</div>
+	<% end %>
+<center>
