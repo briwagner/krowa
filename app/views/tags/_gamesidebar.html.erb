@@ -1,0 +1,26 @@
+<h3>Categories:</h3>
+<% if !game.tags[0] %>
+  <em>add some tags to this game</em>
+<% end %>
+<% @tags = Tag.all %>
+<% @tags.each do |tag| %>
+  <% if game.tags.include?(tag) %>
+    <h5><%= form_tag("/games/#{game.id}/taggings/#{tag.id}", method: "delete") do %>
+      <button type="submit" class="minus-sign fa fa-minus-circle fa-2 fa-fw"></button>
+      <%= link_to tag.title, tag_path(tag) %>
+    <% end %></h5>
+  <% end %>
+<% end %>
+<br>
+<% @tags.each do |tag| %>
+  <% if !game.tags.include?(tag) %>
+    <h5><%= form_tag("/games/#{game.id}/taggings/#{tag.id}", method: "post") do %>
+      <button type="submit" class="plus-sign fa fa-plus-circle fa-2 fa-fw"></button>
+      <%= link_to tag.title, tag_path(tag) %>
+    <% end %></h5>
+  <% end %>
+<% end %>
+
+
+
+

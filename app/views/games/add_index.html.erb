@@ -2,7 +2,7 @@
   <br>
   <%= form_tag("/games/add", method: "get") do %>
   <%= text_field_tag :name, nil, placeholder: "Search the Internet" %>
-  <%= submit_tag("Search") %>
+  <%= submit_tag "Search", class: "btn btn-purple" %>
   <% end %>
   <br>
     <% if @game_data != nil %>
